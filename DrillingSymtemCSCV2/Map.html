@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        #l-map {
+            height: 100%;
+            width: 78%;
+            float: left;
+            border-right: 2px solid #bcbcbc;
+        }
+
+        #r-result {
+            /*height: 100%;*/
+            width: 20%;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <title>百度地图的Hello, World</title>
+</head>
+<body>
+    <div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map("allmap");  // 创建Map实例
+    var first_locate = new BMap.Point(108.953098, 34.2778);  // 创建点坐标
+    var arr_marker = new Array();
+   
+    map.centerAndZoom(first_locate, 5); // 初始化地图,设置中心点坐标和地图级别。
+    map.enableScrollWheelZoom(true);  //启用滚轮放大缩小
+    map.clearOverlays();
+
+    //   var infoWindow = new BMap.InfoWindow();
+    //   infoWindow.setContent("经度:" + first_locate.lng + ";纬度:" + first_locate.lat );
+    //   var marker = new BMap.Marker(first_locate);
+    //   map.addOverlay(marker);
+    //   map.openInfoWindow(infoWindow, first_locate);                     //打开信息窗口  
+    map.setCenter(first_locate);
+
+    function ChangeLocation(index, description) {//参数纬度，经度
+        var marker = arr_marker[index];
+        var infoWindow = new BMap.InfoWindow("纬度:" + marker.point.lat + "," + "经度" + marker.point.lng + "</br>" + description);
+        map.centerAndZoom(marker.getPosition(), 10);
+        map.setCenter(marker.getPosition());
+        map.openInfoWindow(infoWindow, marker.getPosition());
+    }
+
+    function setLocation(x, y, z) {//参数：经纬度
+        var point = new BMap.Point(x, y);
+      
+        var marker = new BMap.Marker(point);
+     
+        arr_marker.push(marker);
+        marker.addEventListener("click", function () {
+            var infoWindow = new BMap.InfoWindow("纬度:" + marker.point.lat + "," + "经度" + marker.point.lng + "</br>" + z);
+          
+            this.openInfoWindow(infoWindow);
+
+        });
+        
+        map.addOverlay(marker);
+    }
+</script>

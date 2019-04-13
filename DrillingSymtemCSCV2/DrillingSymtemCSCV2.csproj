@@ -1,0 +1,1213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D28EDE42-A9CC-44D9-890E-9B73E664E890}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrillingSymtemCSCV2</RootNamespace>
+    <AssemblyName>iDrill2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>hhbeta1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS, Version=1.7.1.3894, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ, Version=1.7.1.3924, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.DSOFramer, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.DSOFramer.dll</HintPath>
+    </Reference>
+    <Reference Include="dataStruct, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\dataStruct.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.1.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EQATEC.Analytics.Monitor, Version=3.0.206.0, Culture=neutral, PublicKeyToken=213c7c68adb58a17, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geckofx-Core, Version=60.0.26.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx60.32.60.0.26\lib\net45\Geckofx-Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geckofx-Winforms, Version=60.0.26.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx60.32.60.0.26\lib\net45\Geckofx-Winforms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DSOFramer, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.DSOFramer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="nsDataShow">
+      <HintPath>..\..\..\..\现在1V1版本\KDC90DBS-RIG59—IPC20170109-(XP版)\bin\Debug\nsDataShow.dll</HintPath>
+    </Reference>
+    <Reference Include="RadControlSpy, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.ChartView, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.ChartView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.CodedUI.2012, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.CodedUI.2012.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.PdfViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PivotGrid, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.PivotGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadChart, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.RadChart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.RadDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadMarkupEditor, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.RadMarkupEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RichTextBox, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.RichTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Scheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.SpellChecker, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.SpellChecker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Aqua.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Breeze.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Desert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2007Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2007Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2010Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2010Blue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2010Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2013Dark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Office2013Light.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.TelerikMetroTouch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.VisualStudio2012Dark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.VisualStudio2012Light.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Windows7.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.Themes.Windows8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI.Design, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\Telerik.WinControls.UI.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikData, Version=2014.1.226.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator.SKY-20180515ZUG\Desktop\111\TelerikData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZcLibrary">
+      <HintPath>..\..\..\..\..\013HighWay\008.PC Version\ZCAccountPaySystem\WindowsApplication1\bin\Debug\ZcLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph, Version=5.0.10.27205, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\work\regview\zedgraph_v5.0.9\source\bin\Debug\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comm\AutoSizeFormClass.cs" />
+    <Compile Include="Comm\Comm.cs" />
+    <Compile Include="Forms\ActivityStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ActivityStatusForm.Designer.cs">
+      <DependentUpon>ActivityStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddWell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddWell.Designer.cs">
+      <DependentUpon>AddWell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddWorkerForm.Designer.cs">
+      <DependentUpon>AddWorkerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AlarmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AlarmForm.Designer.cs">
+      <DependentUpon>AlarmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DateSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DateSelect.Designer.cs">
+      <DependentUpon>DateSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrillPVTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrillPVTForm.Designer.cs">
+      <DependentUpon>DrillPVTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditBoxForm.Designer.cs">
+      <DependentUpon>EditBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CirculateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CirculateForm.Designer.cs">
+      <DependentUpon>CirculateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DirectionalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DirectionalForm.Designer.cs">
+      <DependentUpon>DirectionalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExportTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExportTime.designer.cs">
+      <DependentUpon>ExportTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_DisplaySetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_DisplaySetting.Designer.cs">
+      <DependentUpon>Frm_DisplaySetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Welllist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Welllist.Designer.cs">
+      <DependentUpon>Frm_Welllist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_welllistcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_welllistcon.Designer.cs">
+      <DependentUpon>Frm_welllistcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MenuForm.designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditTagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditTagForm.Designer.cs">
+      <DependentUpon>EditTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryDataForm.Designer.cs">
+      <DependentUpon>HistoryDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryDataPrtsc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryDataPrtsc.Designer.cs">
+      <DependentUpon>HistoryDataPrtsc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HisWellList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HisWellList.designer.cs">
+      <DependentUpon>HisWellList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MapForm.Designer.cs">
+      <DependentUpon>MapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Map_Baidu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Map_Baidu.designer.cs">
+      <DependentUpon>Map_Baidu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MarkForm.Designer.cs">
+      <DependentUpon>MarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PitStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PitStatus.Designer.cs">
+      <DependentUpon>PitStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportSelect.Designer.cs">
+      <DependentUpon>ReportSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResetForm.designer.cs">
+      <DependentUpon>ResetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectMessage.Designer.cs">
+      <DependentUpon>SelectMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrillingGasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrillingGasForm.Designer.cs">
+      <DependentUpon>DrillingGasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrillForm.Designer.cs">
+      <DependentUpon>DrillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RotaForm.Designer.cs">
+      <DependentUpon>RotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectList.Designer.cs">
+      <DependentUpon>SelectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectNameForm.Designer.cs">
+      <DependentUpon>SelectNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectTable.Designer.cs">
+      <DependentUpon>SelectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectTagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectTagForm.Designer.cs">
+      <DependentUpon>SelectTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetCommand.Designer.cs">
+      <DependentUpon>SetCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingForm2.designer.cs">
+      <DependentUpon>SettingForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShowAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowAlarm.Designer.cs">
+      <DependentUpon>ShowAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShowMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowMessage.Designer.cs">
+      <DependentUpon>ShowMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ToolManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToolManageForm.Designer.cs">
+      <DependentUpon>ToolManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VideoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VideoForm.designer.cs">
+      <DependentUpon>VideoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WITSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WITSForm.Designer.cs">
+      <DependentUpon>WITSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WorkerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkerManagement.Designer.cs">
+      <DependentUpon>WorkerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map_display.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map_display.Designer.cs">
+      <DependentUpon>Map_display.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ActivityStatus.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AlarmHis.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AlarmHistory.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AlarmHistoryTJ.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Alarms.cs" />
+    <Compile Include="Model\AppDrill.cs" />
+    <Compile Include="Model\BushingSize.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BushingType.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChartPoint.cs" />
+    <Compile Include="Model\Command.cs" />
+    <Compile Include="Model\CurrentDrill.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Drill.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Driller.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DrillOSEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrillOSEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DrillOSEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DrillOSEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrillOSEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DrillTag.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DrillTools.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Encrypt.cs" />
+    <Compile Include="Model\HistoryDataModel.cs" />
+    <Compile Include="Model\Memo.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MemoContent.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MemoMongoData.cs" />
+    <Compile Include="Model\OutTagAS.cs" />
+    <Compile Include="Model\Permission.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RealTimeDataModel.cs" />
+    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\ReportData.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rota.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Table_BitRecord.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Table_DrillingAssembly.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Table_MudChemicalsAdded.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Table_PumpNo.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TagDayMiddleNightModel.cs" />
+    <Compile Include="Model\TagDictionary.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UnitTransfer.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserTagRef.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WebRecordTag.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WITSData.cs" />
+    <Compile Include="Model\WorkCode.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Worker.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkType.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CalendarColumn.cs" />
+    <Compile Include="UserControls\chart.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserControls\chart.Designer.cs">
+      <DependentUpon>chart.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserControls\Chb.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Chb.designer.cs">
+      <DependentUpon>Chb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataShow.Designer.cs">
+      <DependentUpon>DataShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataShow2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataShow2.Designer.cs">
+      <DependentUpon>DataShow2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataShow3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataShow3.Designer.cs">
+      <DependentUpon>DataShow3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataShow4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataShow4.Designer.cs">
+      <DependentUpon>DataShow4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataShowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataShowControl.Designer.cs">
+      <DependentUpon>DataShowControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DepthTimeChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DepthTimeChart.Designer.cs">
+      <DependentUpon>DepthTimeChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DisplayTv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DisplayTv.Designer.cs">
+      <DependentUpon>DisplayTv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FourChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FourChart.Designer.cs">
+      <DependentUpon>FourChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HistoryDataDepthShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HistoryDataDepthShow.Designer.cs">
+      <DependentUpon>HistoryDataDepthShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HistoryDataShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HistoryDataShow.Designer.cs">
+      <DependentUpon>HistoryDataShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\mark.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\mark.Designer.cs">
+      <DependentUpon>mark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RowMergeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\RowMergeView.designer.cs" />
+    <Compile Include="Video\camera.cs" />
+    <Compile Include="Video\HkAction.cs" />
+    <Compile Include="Video\HkSDK.cs" />
+    <EmbeddedResource Include="Forms\ActivityStatusForm.resx">
+      <DependentUpon>ActivityStatusForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddWell.resx">
+      <DependentUpon>AddWell.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddWorkerForm.resx">
+      <DependentUpon>AddWorkerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlarmForm.resx">
+      <DependentUpon>AlarmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CirculateForm.resx">
+      <DependentUpon>CirculateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DateSelect.resx">
+      <DependentUpon>DateSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DirectionalForm.resx">
+      <DependentUpon>DirectionalForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrillPVTForm.resx">
+      <DependentUpon>DrillPVTForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditBoxForm.resx">
+      <DependentUpon>EditBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportTime.resx">
+      <DependentUpon>ExportTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_DisplaySetting.resx">
+      <DependentUpon>Frm_DisplaySetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Welllist.resx">
+      <DependentUpon>Frm_Welllist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_welllistcon.resx">
+      <DependentUpon>Frm_welllistcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditTagForm.resx">
+      <DependentUpon>EditTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryDataForm.resx">
+      <DependentUpon>HistoryDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryDataPrtsc.resx">
+      <DependentUpon>HistoryDataPrtsc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HisWellList.resx">
+      <DependentUpon>HisWellList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MapForm.resx">
+      <DependentUpon>MapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Map_Baidu.resx">
+      <DependentUpon>Map_Baidu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MarkForm.resx">
+      <DependentUpon>MarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PitStatus.resx">
+      <DependentUpon>PitStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportSelect.resx">
+      <DependentUpon>ReportSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResetForm.resx">
+      <DependentUpon>ResetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectMessage.resx">
+      <DependentUpon>SelectMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrillingGasForm.resx">
+      <DependentUpon>DrillingGasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrillForm.resx">
+      <DependentUpon>DrillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RotaForm.resx">
+      <DependentUpon>RotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectList.resx">
+      <DependentUpon>SelectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectNameForm.resx">
+      <DependentUpon>SelectNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectTable.resx">
+      <DependentUpon>SelectTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectTagForm.resx">
+      <DependentUpon>SelectTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetCommand.resx">
+      <DependentUpon>SetCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingForm2.resx">
+      <DependentUpon>SettingForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowAlarm.resx">
+      <DependentUpon>ShowAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowMessage.resx">
+      <DependentUpon>ShowMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToolManageForm.resx">
+      <DependentUpon>ToolManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VideoForm.resx">
+      <DependentUpon>VideoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WITSForm.resx">
+      <DependentUpon>WITSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkerManagement.resx">
+      <DependentUpon>WorkerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map_display.resx">
+      <DependentUpon>Map_display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\chart.resx">
+      <DependentUpon>chart.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Chb.resx">
+      <DependentUpon>Chb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataShow.resx">
+      <DependentUpon>DataShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataShow2.resx">
+      <DependentUpon>DataShow2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataShow3.resx">
+      <DependentUpon>DataShow3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataShow4.resx">
+      <DependentUpon>DataShow4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataShowControl.resx">
+      <DependentUpon>DataShowControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DepthTimeChart.resx">
+      <DependentUpon>DepthTimeChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DisplayTv.resx">
+      <DependentUpon>DisplayTv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FourChart.resx">
+      <DependentUpon>FourChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HistoryDataDepthShow.resx">
+      <DependentUpon>HistoryDataDepthShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HistoryDataShow.resx">
+      <DependentUpon>HistoryDataShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\mark.resx">
+      <DependentUpon>mark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RowMergeView.resx" />
+    <EntityDeploy Include="Model\DrillOSEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DrillOSEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Firefox\omni.ja" />
+    <None Include="Model\DrillOSEntity.edmx.diagram">
+      <DependentUpon>DrillOSEntity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TMDBTheme.tssp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Firefox\AccessibleHandler.dll" />
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\breakpadinjector.dll" />
+    <Content Include="Firefox\d3dcompiler_47.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\IA2Marshal.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozavcodec.dll" />
+    <Content Include="Firefox\mozavutil.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\qipcap.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
+    <Content Include="hhbeta1.ico" />
+    <Content Include="Map.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\DrillOSEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrillOSEntity.edmx</DependentUpon>
+      <LastGenOutput>DrillOSEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DrillOSEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrillOSEntity.edmx</DependentUpon>
+      <LastGenOutput>DrillOSEntity.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\bottom.png" />
+    <Content Include="Resources\drill_machine.png" />
+    <Content Include="Resources\drill_machine1.png" />
+    <Content Include="Resources\drill_machine2.png" />
+    <Content Include="Resources\drill_machine3.png" />
+    <Content Include="Resources\drill_machine4.png" />
+    <Content Include="Resources\enlarge.png" />
+    <Content Include="Resources\hhlogo.png" />
+    <Content Include="Resources\left.png" />
+    <Content Include="Resources\line1.png" />
+    <Content Include="Resources\line2.png" />
+    <Content Include="Resources\load.gif" />
+    <Content Include="Resources\mainstatusok.jpg" />
+    <Content Include="Resources\ok.png" />
+    <Content Include="Resources\prosessbar5.gif" />
+    <Content Include="Resources\right.png" />
+    <Content Include="Resources\sorrow.png" />
+    <Content Include="Resources\top.png" />
+    <Content Include="Resources\top1.png" />
+    <Content Include="Resources\user_48.png" />
+    <Content Include="Resources\Valve_R.png" />
+    <Content Include="Resources\世界地图.jpg" />
+    <Content Include="Resources\世界地图1.jpg" />
+    <Content Include="Resources\标记.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Geckofx60.32.60.0.26\build\Geckofx60.32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.32.60.0.26\build\Geckofx60.32.targets'))" />
+  </Target>
+  <Import Project="..\packages\Geckofx60.32.60.0.26\build\Geckofx60.32.targets" Condition="Exists('..\packages\Geckofx60.32.60.0.26\build\Geckofx60.32.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DrillOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillID" Type="int" Nullable="false" />
+          <Property Name="ActivityName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SelectDateForm" Type="datetime" />
+          <Property Name="SelectDateTo" Type="datetime" />
+          <Property Name="IsSelect" Type="bit" Nullable="false" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AlarmHis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="Tag" Type="varchar" MaxLength="30" />
+          <Property Name="TagValue" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="Message" Type="varchar" MaxLength="200" />
+          <Property Name="RecoveryTime" Type="datetime" />
+          <Property Name="AlarmLevel" Type="char" MaxLength="2" />
+          <Property Name="Dispose" Type="int" />
+          <Property Name="DisposeMan" Type="varchar" MaxLength="50" />
+          <Property Name="DisposeTime" Type="datetime" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+          <Property Name="Count" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AlarmHistoryTJ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" />
+          <Property Name="Tag" Type="varchar" MaxLength="30" />
+          <Property Name="AlarmCount" Type="int" Nullable="false" />
+          <Property Name="AlarmProportion" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="BushingSize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BushingType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CurrentDrill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrentDirllId" Type="int" Nullable="false" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Drill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lease" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateSpud" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToolPusher" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateRelease" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyMan" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="location" Type="nvarchar" MaxLength="50" />
+          <Property Name="RigNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="HoleDepth" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeartBeat" Type="nvarchar" MaxLength="50" />
+          <Property Name="longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="design_depth" Type="nvarchar" MaxLength="50" />
+          <Property Name="period" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Driller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Crew" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="DrillTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefaultFrom" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="DefaultTo" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="HValue" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="LValue" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="AlarmFlag" Type="int" />
+          <Property Name="IsBool" Type="bit" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="HisActive" Type="bit" />
+          <Property Name="LisActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="DrillTools">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Length" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="100" />
+          <Property Name="order" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Unit" Type="varchar" MaxLength="10" />
+          <Property Name="Group" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="Basic" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Memo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillID" Type="int" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" />
+          <Property Name="Value" Type="float" />
+          <Property Name="UnixTime" Type="int" />
+          <Property Name="Unit" Type="varchar" MaxLength="30" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Text" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MemoContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemoText" Type="varchar" MaxLength="200" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ReportData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="JsonData" Type="text" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rota">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="TypeWork" Type="int" />
+          <Property Name="Content" Type="varchar" MaxLength="50" />
+          <Property Name="WorkTime" Type="datetime" />
+          <Property Name="Shift" Type="int" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_BitRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitNo" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="IADCCode" Type="varchar" MaxLength="50" />
+          <Property Name="SerialNO" Type="varchar" MaxLength="50" />
+          <Property Name="JETS" Type="varchar" MaxLength="50" />
+          <Property Name="TFA" Type="varchar" MaxLength="50" />
+          <Property Name="DepthOut" Type="varchar" MaxLength="50" />
+          <Property Name="DepthIn" Type="varchar" MaxLength="50" />
+          <Property Name="TotalDrilled" Type="varchar" MaxLength="50" />
+          <Property Name="TotalHours" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_DrillingAssembly">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeNo" Type="varchar" MaxLength="50" />
+          <Property Name="Item" Type="varchar" MaxLength="50" />
+          <Property Name="Length" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_MudChemicalsAdded">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Table_PumpNo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PumpNo" Type="varchar" MaxLength="50" />
+          <Property Name="PumpManufacture" Type="varchar" MaxLength="100" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="StrokeLength" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TagDictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Basic" Type="varchar" MaxLength="50" />
+          <Property Name="TransferType" Type="varchar" MaxLength="50" />
+          <Property Name="TagShowName" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="UnitTransfer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitFrom" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UnitTo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Coefficient" Type="decimal" Precision="8" Scale="3" Nullable="false" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="realName" Type="varchar" MaxLength="50" />
+          <Property Name="PermissionId" Type="int" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="timeStamp" Type="int" />
+        </EntityType>
+        <EntityType Name="UserTagRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="JsonTag" Type="nvarchar(max)" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="JsonAlarm" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WebRecordTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrillId" Type="int" />
+          <Property Name="Group" Type="int" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" />
+          <Property Name="TagName" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="From" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="To" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="WorkCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeNo" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmpNO" Type="varchar" MaxLength="50" />
+          <Property Name="TypeWork" Type="int" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="nvarchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeTime" Type="datetime" />
+          <Property Name="dataMakePGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataMakeUser" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdTime" Type="datetime" />
+          <Property Name="dataUpdPGM" Type="varchar" MaxLength="50" />
+          <Property Name="dataUpdUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DrillOSModelStoreContainer">
+          <EntitySet Name="ActivityStatus" EntityType="Self.ActivityStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlarmHis" EntityType="Self.AlarmHis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlarmHistory" EntityType="Self.AlarmHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlarmHistoryTJ" EntityType="Self.AlarmHistoryTJ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BushingSize" EntityType="Self.BushingSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BushingType" EntityType="Self.BushingType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentDrill" EntityType="Self.CurrentDrill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drill" EntityType="Self.Drill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driller" EntityType="Self.Driller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrillTag" EntityType="Self.DrillTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrillTools" EntityType="Self.DrillTools" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Memo" EntityType="Self.Memo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemoContent" EntityType="Self.MemoContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportData" EntityType="Self.ReportData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rota" EntityType="Self.Rota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_BitRecord" EntityType="Self.Table_BitRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DrillingAssembly" EntityType="Self.Table_DrillingAssembly" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_MudChemicalsAdded" EntityType="Self.Table_MudChemicalsAdded" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_PumpNo" EntityType="Self.Table_PumpNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagDictionary" EntityType="Self.TagDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitTransfer" EntityType="Self.UnitTransfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTagRef" EntityType="Self.UserTagRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebRecordTag" EntityType="Self.WebRecordTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkCode" EntityType="Self.WorkCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkType" EntityType="Self.WorkType" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DrillOSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DrillOSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AlarmHistoryTJ" EntityType="DrillOSModel.AlarmHistoryTJ" />
+          <EntitySet Name="User" EntityType="DrillOSModel.User" />
+          <EntitySet Name="MemoContent" EntityType="DrillOSModel.MemoContent" />
+          <EntitySet Name="Rota" EntityType="DrillOSModel.Rota" />
+          <EntitySet Name="Memo" EntityType="DrillOSModel.Memo" />
+          <EntitySet Name="BushingSize" EntityType="DrillOSModel.BushingSize" />
+          <EntitySet Name="BushingType" EntityType="DrillOSModel.BushingType" />
+          <EntitySet Name="WorkCode" EntityType="DrillOSModel.WorkCode" />
+          <EntitySet Name="Table_MudChemicalsAdded" EntityType="DrillOSModel.Table_MudChemicalsAdded" />
+          <EntitySet Name="Table_PumpNo" EntityType="DrillOSModel.Table_PumpNo" />
+          <EntitySet Name="Table_BitRecord" EntityType="DrillOSModel.Table_BitRecord" />
+          <EntitySet Name="Table_DrillingAssembly" EntityType="DrillOSModel.Table_DrillingAssembly" />
+          <EntitySet Name="Driller" EntityType="DrillOSModel.Driller" />
+          <EntitySet Name="TagDictionary" EntityType="DrillOSModel.TagDictionary" />
+          <EntitySet Name="UnitTransfer" EntityType="DrillOSModel.UnitTransfer" />
+          <EntitySet Name="DrillTools" EntityType="DrillOSModel.DrillTools" />
+          <EntitySet Name="UserTagRef" EntityType="DrillOSModel.UserTagRef" />
+          <EntitySet Name="DrillTag" EntityType="DrillOSModel.DrillTag" />
+          <EntitySet Name="ActivityStatus" EntityType="DrillOSModel.ActivityStatus" />
+          <EntitySet Name="CurrentDrill" EntityType="DrillOSModel.CurrentDrill" />
+          <EntitySet Name="WebRecordTag" EntityType="DrillOSModel.WebRecordTag" />
+          <EntitySet Name="Worker" EntityType="DrillOSModel.Worker" />
+          <EntitySet Name="Permission" EntityType="DrillOSModel.Permission" />
+          <EntitySet Name="ReportData" EntityType="DrillOSModel.ReportData" />
+          <EntitySet Name="WorkType" EntityType="DrillOSModel.WorkType" />
+          <EntitySet Name="AlarmHistory" EntityType="DrillOSModel.AlarmHistory" />
+          <EntitySet Name="AlarmHis" EntityType="DrillOSModel.AlarmHis" />
+          <EntitySet Name="Drill" EntityType="DrillOSModel.Drill" />
+        </EntityContainer>
+        <EntityType Name="AlarmHistoryTJ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="AlarmCount" Type="Int32" Nullable="false" />
+          <Property Name="AlarmProportion" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="dataMakeTime" Type="DateTime" Precision="3" />
+          <Property Name="dataMakeUser" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="dataMakePGM" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="dataUpdTime" Type="DateTime" Precision="3" />
+          <Property Name="dataUpdUser" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="dataUpdPGM" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="DrillId" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="realName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PermissionId" />
+          <Property Type="Boolean" Name="isActive" />
+          <Property Type="Int32" Name="timeStamp" />
+        </EntityType>
+        <EntityType Name="MemoContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="MemoText" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Rota">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TypeWork" />
+          <Property Type="String" Name="Content" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="WorkTime" Precision="3" />
+          <Property Type="Int32" Name="Shift" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Memo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="DrillID" />
+          <Property Type="String" Name="Tag" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UnixTime" />
+          <Property Type="DateTime" Name="CreateTime" Precision="3" />
+          <Property Type="String" Name="Text" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Value" />
+          <Property Type="String" Name="Unit" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BushingSize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Size" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BushingType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="CodeNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_MudChemicalsAdded">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Item" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_PumpNo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="PumpNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PumpManufacture" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StrokeLength" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_BitRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="BitNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Size" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IADCCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SerialNO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JETS" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TFA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DepthOut" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DepthIn" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TotalDrilled" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TotalHours" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_DrillingAssembly">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="CodeNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Item" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Length" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Driller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Crew" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TagDictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Basic" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TransferType" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TagShowName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UnitTransfer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="UnitFrom" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UnitTo" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Coefficient" Nullable="false" Precision="8" Scale="3" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DrillTools">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="DrillId" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Decimal" Name="Length" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="String" Name="Comment" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Date" Precision="3" />
+          <Property Type="String" Name="Unit" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Group" Precision="18" Scale="1" />
+          <Property Type="Int32" Name="Basic" Nullable="false" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="order" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTagRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DrillId" Nullable="false" />
+          <Property Type="String" Name="Username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JsonTag" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JsonAlarm" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DrillTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DrillId" Nullable="false" />
+          <Property Type="String" Name="Tag" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DefaultFrom" Precision="10" Scale="1" />
+          <Property Type="Decimal" Name="DefaultTo" Precision="10" Scale="1" />
+          <Property Type="String" Name="Unit" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="HValue" Precision="10" Scale="1" />
+          <Property Type="Decimal" Name="LValue" Precision="10" Scale="1" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AlarmFlag" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsBool" />
+          <Property Type="Boolean" Name="HisActive" />
+          <Property Type="Boolean" Name="LisActive" />
+        </EntityType>
+        <EntityType Name="ActivityStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DrillID" Nullable="false" />
+          <Property Type="String" Name="ActivityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="SelectDateForm" Precision="3" />
+          <Property Type="DateTime" Name="SelectDateTo" Precision="3" />
+          <Property Type="Boolean" Name="IsSelect" Nullable="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CurrentDrill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CurrentDirllId" Nullable="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WebRecordTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DrillId" />
+          <Property Type="Int32" Name="Group" />
+          <Property Type="String" Name="Tag" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TagName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Unit" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="From" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="To" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TypeWork" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpNO" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReportData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DrillId" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JsonData" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataMakeTime" Precision="3" />
+          <Property Type="String" Name="dataMakePGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataMakeUser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataUpdTime" Precision="3" />
+          <Property Type="String" Name="dataUpdPGM" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dataUpdUser" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DrillId" Type="Int32" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TagValue" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RecoveryTime" Type="DateTime" Precision="3" />
+          <Property Name="AlarmLevel" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Dispose" Type="Int32" />
+          <Property Name="DisposeMan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisposeTime" Type="DateTime" Precision="3" />
+          <Property Name="dataMakeTime" Type="DateTime" Precision="3" />
+          <Property Name="dataMakeUser" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="dataMakePGM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="dataUpdTime" Type="DateTime" Precision="3" />
+          <Property Name="dataUpdUser" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="dataUpdPGM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Count" Type="Int64" />
+        </EntityType>
+        <EntityType Name="AlarmHis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DrillID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Drill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DrillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateSpud" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToolPusher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateRelease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyMan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dataMakeTime" Type="DateTime" Precision="3" />
+          <Property Name="dataMakePGM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dataMakeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dataUpdTime" Type="DateTime" Precision="3" />
+          <Property Name="dataUpdPGM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dataUpdUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RigNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="HoleDepth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeartBeat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="design_depth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DrillOSModelStoreContainer" CdmEntityContainer="DrillOSEntities">
+          <EntitySetMapping Name="AlarmHistoryTJ">
+            <EntityTypeMapping TypeName="DrillOSModel.AlarmHistoryTJ">
+              <MappingFragment StoreEntitySet="AlarmHistoryTJ">
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="AlarmCount" ColumnName="AlarmCount" />
+                <ScalarProperty Name="AlarmProportion" ColumnName="AlarmProportion" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DrillOSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemoContent">
+            <EntityTypeMapping TypeName="DrillOSModel.MemoContent">
+              <MappingFragment StoreEntitySet="MemoContent">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="MemoText" ColumnName="MemoText" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rota">
+            <EntityTypeMapping TypeName="DrillOSModel.Rota">
+              <MappingFragment StoreEntitySet="Rota">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="TypeWork" ColumnName="TypeWork" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memo">
+            <EntityTypeMapping TypeName="DrillOSModel.Memo">
+              <MappingFragment StoreEntitySet="Memo">
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UnixTime" ColumnName="UnixTime" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="DrillID" ColumnName="DrillID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BushingSize">
+            <EntityTypeMapping TypeName="DrillOSModel.BushingSize">
+              <MappingFragment StoreEntitySet="BushingSize">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BushingType">
+            <EntityTypeMapping TypeName="DrillOSModel.BushingType">
+              <MappingFragment StoreEntitySet="BushingType">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkCode">
+            <EntityTypeMapping TypeName="DrillOSModel.WorkCode">
+              <MappingFragment StoreEntitySet="WorkCode">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_MudChemicalsAdded">
+            <EntityTypeMapping TypeName="DrillOSModel.Table_MudChemicalsAdded">
+              <MappingFragment StoreEntitySet="Table_MudChemicalsAdded">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_PumpNo">
+            <EntityTypeMapping TypeName="DrillOSModel.Table_PumpNo">
+              <MappingFragment StoreEntitySet="Table_PumpNo">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="StrokeLength" ColumnName="StrokeLength" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PumpManufacture" ColumnName="PumpManufacture" />
+                <ScalarProperty Name="PumpNo" ColumnName="PumpNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_BitRecord">
+            <EntityTypeMapping TypeName="DrillOSModel.Table_BitRecord">
+              <MappingFragment StoreEntitySet="Table_BitRecord">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="TotalDrilled" ColumnName="TotalDrilled" />
+                <ScalarProperty Name="DepthIn" ColumnName="DepthIn" />
+                <ScalarProperty Name="DepthOut" ColumnName="DepthOut" />
+                <ScalarProperty Name="TFA" ColumnName="TFA" />
+                <ScalarProperty Name="JETS" ColumnName="JETS" />
+                <ScalarProperty Name="SerialNO" ColumnName="SerialNO" />
+                <ScalarProperty Name="IADCCode" ColumnName="IADCCode" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="BitNo" ColumnName="BitNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_DrillingAssembly">
+            <EntityTypeMapping TypeName="DrillOSModel.Table_DrillingAssembly">
+              <MappingFragment StoreEntitySet="Table_DrillingAssembly">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Driller">
+            <EntityTypeMapping TypeName="DrillOSModel.Driller">
+              <MappingFragment StoreEntitySet="Driller">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Crew" ColumnName="Crew" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagDictionary">
+            <EntityTypeMapping TypeName="DrillOSModel.TagDictionary">
+              <MappingFragment StoreEntitySet="TagDictionary">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="TagShowName" ColumnName="TagShowName" />
+                <ScalarProperty Name="TransferType" ColumnName="TransferType" />
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitTransfer">
+            <EntityTypeMapping TypeName="DrillOSModel.UnitTransfer">
+              <MappingFragment StoreEntitySet="UnitTransfer">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+                <ScalarProperty Name="UnitTo" ColumnName="UnitTo" />
+                <ScalarProperty Name="UnitFrom" ColumnName="UnitFrom" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrillTools">
+            <EntityTypeMapping TypeName="DrillOSModel.DrillTools">
+              <MappingFragment StoreEntitySet="DrillTools">
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTagRef">
+            <EntityTypeMapping TypeName="DrillOSModel.UserTagRef">
+              <MappingFragment StoreEntitySet="UserTagRef">
+                <ScalarProperty Name="JsonAlarm" ColumnName="JsonAlarm" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="JsonTag" ColumnName="JsonTag" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrillTag">
+            <EntityTypeMapping TypeName="DrillOSModel.DrillTag">
+              <MappingFragment StoreEntitySet="DrillTag">
+                <ScalarProperty Name="LisActive" ColumnName="LisActive" />
+                <ScalarProperty Name="HisActive" ColumnName="HisActive" />
+                <ScalarProperty Name="IsBool" ColumnName="IsBool" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="AlarmFlag" ColumnName="AlarmFlag" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="LValue" ColumnName="LValue" />
+                <ScalarProperty Name="HValue" ColumnName="HValue" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="DefaultTo" ColumnName="DefaultTo" />
+                <ScalarProperty Name="DefaultFrom" ColumnName="DefaultFrom" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityStatus">
+            <EntityTypeMapping TypeName="DrillOSModel.ActivityStatus">
+              <MappingFragment StoreEntitySet="ActivityStatus">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
+                <ScalarProperty Name="SelectDateTo" ColumnName="SelectDateTo" />
+                <ScalarProperty Name="SelectDateForm" ColumnName="SelectDateForm" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="DrillID" ColumnName="DrillID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentDrill">
+            <EntityTypeMapping TypeName="DrillOSModel.CurrentDrill">
+              <MappingFragment StoreEntitySet="CurrentDrill">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="CurrentDirllId" ColumnName="CurrentDirllId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebRecordTag">
+            <EntityTypeMapping TypeName="DrillOSModel.WebRecordTag">
+              <MappingFragment StoreEntitySet="WebRecordTag">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="DrillOSModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="EmpNO" ColumnName="EmpNO" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="TypeWork" ColumnName="TypeWork" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permission">
+            <EntityTypeMapping TypeName="DrillOSModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportData">
+            <EntityTypeMapping TypeName="DrillOSModel.ReportData">
+              <MappingFragment StoreEntitySet="ReportData">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="JsonData" ColumnName="JsonData" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkType">
+            <EntityTypeMapping TypeName="DrillOSModel.WorkType">
+              <MappingFragment StoreEntitySet="WorkType">
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmHistory">
+            <EntityTypeMapping TypeName="DrillOSModel.AlarmHistory">
+              <MappingFragment StoreEntitySet="AlarmHistory">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="DisposeTime" ColumnName="DisposeTime" />
+                <ScalarProperty Name="DisposeMan" ColumnName="DisposeMan" />
+                <ScalarProperty Name="Dispose" ColumnName="Dispose" />
+                <ScalarProperty Name="AlarmLevel" ColumnName="AlarmLevel" />
+                <ScalarProperty Name="RecoveryTime" ColumnName="RecoveryTime" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="TagValue" ColumnName="TagValue" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="DrillId" ColumnName="DrillId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmHis">
+            <EntityTypeMapping TypeName="DrillOSModel.AlarmHis">
+              <MappingFragment StoreEntitySet="AlarmHis">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DrillID" ColumnName="DrillID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drill">
+            <EntityTypeMapping TypeName="DrillOSModel.Drill">
+              <MappingFragment StoreEntitySet="Drill">
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="design_depth" ColumnName="design_depth" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
+                <ScalarProperty Name="HoleDepth" ColumnName="HoleDepth" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="RigNo" ColumnName="RigNo" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="dataUpdUser" ColumnName="dataUpdUser" />
+                <ScalarProperty Name="dataUpdPGM" ColumnName="dataUpdPGM" />
+                <ScalarProperty Name="dataUpdTime" ColumnName="dataUpdTime" />
+                <ScalarProperty Name="dataMakeUser" ColumnName="dataMakeUser" />
+                <ScalarProperty Name="dataMakePGM" ColumnName="dataMakePGM" />
+                <ScalarProperty Name="dataMakeTime" ColumnName="dataMakeTime" />
+                <ScalarProperty Name="CompanyMan" ColumnName="CompanyMan" />
+                <ScalarProperty Name="DateRelease" ColumnName="DateRelease" />
+                <ScalarProperty Name="ToolPusher" ColumnName="ToolPusher" />
+                <ScalarProperty Name="DateSpud" ColumnName="DateSpud" />
+                <ScalarProperty Name="Contractor" ColumnName="Contractor" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Lease" ColumnName="Lease" />
+                <ScalarProperty Name="DrillNo" ColumnName="DrillNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>
