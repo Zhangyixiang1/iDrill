@@ -35,11 +35,13 @@ namespace DrillingSymtemCSCV2.Model
         public string RigNo { get; set; }
         public string Operator { get; set; }
         public Nullable<bool> isActive { get; set; }
-        public string HoleDepth { get; set; }
+        public string Footage { get; set; }
         public string HeartBeat { get; set; }
-        public string longitude { get; set; }
-        public string latitude { get; set; }
+        public Nullable<float> longitude { get; set; }
+        public Nullable<float> latitude { get; set; }
         public string design_depth { get; set; }
         public string period { get; set; }
+        public int xoff { get; set; }
+        public int yoff { get; set; }
     }
 }

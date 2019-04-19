@@ -52,6 +52,7 @@ namespace DrillingSymtemCSCV2.Model
         public DbSet<WorkType> WorkType { get; set; }
         public DbSet<AlarmHistory> AlarmHistory { get; set; }
         public DbSet<AlarmHis> AlarmHis { get; set; }
+        public DbSet<Footage> Footage { get; set; }
         public DbSet<Drill> Drill { get; set; }
     }
 }

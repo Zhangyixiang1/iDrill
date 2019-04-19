@@ -240,7 +240,7 @@
             this.txb_period.Location = new System.Drawing.Point(165, 351);
             this.txb_period.Name = "txb_period";
             this.txb_period.Size = new System.Drawing.Size(204, 29);
-            this.txb_period.TabIndex = 8;
+            this.txb_period.TabIndex = 9;
             // 
             // panel1
             // 
@@ -279,7 +279,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(204, 21);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.TabIndex = 8;
             // 
             // btn_OK
             // 

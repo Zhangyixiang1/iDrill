@@ -135,12 +135,14 @@
           <Property Name="RigNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Operator" Type="nvarchar" MaxLength="50" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="HoleDepth" Type="nvarchar" MaxLength="50" />
+          <Property Name="Footage" Type="nvarchar" MaxLength="50" />
           <Property Name="HeartBeat" Type="nvarchar" MaxLength="50" />
-          <Property Name="longitude" Type="nvarchar" MaxLength="50" />
-          <Property Name="latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="longitude" Type="real" />
+          <Property Name="latitude" Type="real" />
           <Property Name="design_depth" Type="nvarchar" MaxLength="50" />
           <Property Name="period" Type="nvarchar" MaxLength="50" />
+          <Property Name="xoff" Type="int" Nullable="false" />
+          <Property Name="yoff" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Driller">
           <Key>
@@ -200,6 +202,18 @@
           <Property Name="dataUpdTime" Type="datetime" />
           <Property Name="dataUpdUser" Type="varchar" MaxLength="30" />
           <Property Name="dataUpdPGM" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DrillOS.dbo.Footage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Footage">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="sum_footage" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="sum_footage" Type="real" Nullable="false" />
         </EntityType>
         <EntityType Name="Memo">
           <Key>
@@ -498,6 +512,13 @@
           <EntitySet Name="WorkCode" EntityType="Self.WorkCode" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkType" EntityType="Self.WorkType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Footage" EntityType="Self.Footage" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Footage].[ID] AS [ID], 
+[Footage].[Time] AS [Time], 
+[Footage].[sum_footage] AS [sum_footage]
+FROM [dbo].[Footage] AS [Footage]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -531,6 +552,7 @@
           <EntitySet Name="WorkType" EntityType="DrillOSModel.WorkType" />
           <EntitySet Name="AlarmHistory" EntityType="DrillOSModel.AlarmHistory" />
           <EntitySet Name="AlarmHis" EntityType="DrillOSModel.AlarmHis" />
+          <EntitySet Name="Footage" EntityType="DrillOSModel.Footage" />
           <EntitySet Name="Drill" EntityType="DrillOSModel.Drill" />
         </EntityContainer>
         <EntityType Name="AlarmHistoryTJ">
@@ -965,6 +987,16 @@
           <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Footage">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="sum_footage" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sum_footage" Type="Single" Nullable="false" />
+        </EntityType>
         <EntityType Name="Drill">
           <Key>
             <PropertyRef Name="ID" />
@@ -990,12 +1022,14 @@
           <Property Name="RigNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="isActive" Type="Boolean" />
-          <Property Name="HoleDepth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Footage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HeartBeat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="Single" />
+          <Property Name="latitude" Type="Single" />
           <Property Name="design_depth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="xoff" Type="Int32" Nullable="false" />
+          <Property Name="yoff" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1462,15 +1496,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Footage">
+            <EntityTypeMapping TypeName="DrillOSModel.Footage">
+              <MappingFragment StoreEntitySet="Footage">
+                <ScalarProperty Name="sum_footage" ColumnName="sum_footage" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Drill">
             <EntityTypeMapping TypeName="DrillOSModel.Drill">
               <MappingFragment StoreEntitySet="Drill">
+                <ScalarProperty Name="yoff" ColumnName="yoff" />
+                <ScalarProperty Name="xoff" ColumnName="xoff" />
                 <ScalarProperty Name="period" ColumnName="period" />
                 <ScalarProperty Name="design_depth" ColumnName="design_depth" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
-                <ScalarProperty Name="HoleDepth" ColumnName="HoleDepth" />
+                <ScalarProperty Name="Footage" ColumnName="Footage" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="Operator" ColumnName="Operator" />
                 <ScalarProperty Name="RigNo" ColumnName="RigNo" />

@@ -1808,6 +1808,7 @@ namespace DrillingSymtemCSCV2.Forms
         {
             modifyUserInfo(false);
             Process.GetCurrentProcess().Kill();
+          
         }
 
         private void Activity_Click(object sender, EventArgs e)

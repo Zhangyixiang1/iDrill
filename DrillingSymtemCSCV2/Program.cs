@@ -15,7 +15,7 @@ namespace DrillingSymtemCSCV2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Welllist());
+            Application.Run(new Map_display());
         }
     }
 }

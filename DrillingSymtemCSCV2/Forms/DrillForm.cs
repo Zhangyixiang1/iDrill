@@ -27,7 +27,7 @@ namespace DrillingSymtemCSCV2.Forms
     {
         private AlarmHistory AlarmHistory = null;
         private DrillOSEntities _db2;
-        private bool isRemind=false;//用于判断是否提示过与服务器断开连接
+        private bool isRemind = false;//用于判断是否提示过与服务器断开连接
         delegate void UpdateChart();//更新曲线委托
         private Thread m_tGetdata = null;
         private List<Memo> Memo = new List<Memo>();
@@ -35,7 +35,7 @@ namespace DrillingSymtemCSCV2.Forms
         private double m_dLastTime = 0;
         private long m_lMax = 0;
         private long m_lMin = 0;
-
+        public Point temp_positon;  //临时记录drllform的位置
         public DrillForm()
         {
             setCheckTagShow(true);
@@ -148,14 +148,17 @@ namespace DrillingSymtemCSCV2.Forms
 
             setTagValue(strValue);
         }
-        
-        protected override void WndProc(ref  Message m)
+
+        protected override void WndProc(ref Message m)
         {
             const int WM_SYSCOMMAND = 0x0112;
             const int SC_CLOSE = 0xF060;
 
             if (m.Msg == WM_SYSCOMMAND && (int)m.WParam == SC_CLOSE)
             {
+                //return;
+                this.Location = temp_positon;
+                ((LoginForm)Application.OpenForms["LoginForm"]).timer_display.Enabled = true; //恢复滚动显示
                 return;
             }
 
@@ -193,7 +196,7 @@ namespace DrillingSymtemCSCV2.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             _db2 = new DrillOSEntities();
@@ -269,7 +272,7 @@ namespace DrillingSymtemCSCV2.Forms
                 }
             }
             catch { }
-            
+
         }
 
         //private delegate void ShowNoteMsgDelegate_New(Dictionary<string, string> map);
@@ -310,7 +313,7 @@ namespace DrillingSymtemCSCV2.Forms
         //    long.TryParse(map["Timestamp"], out lTime);
         //    real.Timestamp = lTime;
         //    real.realTags = new List<RealTags>();
-     
+
         //    double dValue;
         //    double.TryParse(map["Value"], out dValue);
         //    for (int i = 1; i < 200; ++i)
@@ -326,13 +329,13 @@ namespace DrillingSymtemCSCV2.Forms
         //}
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-       {
+        {
             try
             {
                 AlarmHistory = _db2.AlarmHistory.Where(o => o.RecoveryTime == null && o.DrillId == AppDrill.DrillID).FirstOrDefault();
             }
-            catch 
-            { 
+            catch
+            {
             }
         }
 
@@ -462,12 +465,12 @@ namespace DrillingSymtemCSCV2.Forms
                 m_tGetdata.IsBackground = true;
                 m_tGetdata.Start();
             }
-            catch 
-            { 
+            catch
+            {
             }
         }
 
-        private void Up_process() 
+        private void Up_process()
         {
             depthTimeChart.UpClick();
             depthTimeChart.getMaxMin(ref m_lMax, ref m_lMin);
@@ -613,7 +616,7 @@ namespace DrillingSymtemCSCV2.Forms
                 setBtnEnabled(btn_Down, depthTimeChart.isDown);
                 setBtnEnabled(btn_PageUp, depthTimeChart.isPageUp);
                 setBtnRP();
-                showLable(m_lMin, m_lMax);                
+                showLable(m_lMin, m_lMax);
             }
 
             m_tGetdata.Abort();
@@ -773,7 +776,7 @@ namespace DrillingSymtemCSCV2.Forms
                 m_tGetdata = null;
             }
         }
-   
+
         //查看实时
         private void radButton3_Click(object sender, EventArgs e)
         {
@@ -805,8 +808,8 @@ namespace DrillingSymtemCSCV2.Forms
                 m_tGetdata.IsBackground = true;
                 m_tGetdata.Start();
             }
-            catch 
-            { 
+            catch
+            {
             }
         }
         private void Enla_process()
@@ -870,8 +873,8 @@ namespace DrillingSymtemCSCV2.Forms
                 m_tGetdata.IsBackground = true;
                 m_tGetdata.Start();
             }
-            catch 
-            { 
+            catch
+            {
             }
         }
         private void Narr_process()
@@ -912,7 +915,7 @@ namespace DrillingSymtemCSCV2.Forms
         //打印截图
         private void radButton6_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 Bitmap bit = new Bitmap(this.Width, this.Height);//实例化一个和窗体一样大的bitmap
                 Graphics g = Graphics.FromImage(bit);
@@ -929,8 +932,8 @@ namespace DrillingSymtemCSCV2.Forms
                     bit.Save(path.FileName);
                 }
             }
-            catch 
-            { 
+            catch
+            {
             }
         }
 
@@ -938,7 +941,7 @@ namespace DrillingSymtemCSCV2.Forms
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-         //   System.Diagnostics.Process.GetCurrentProcess().Kill();
+            //   System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         #region 用户控件参数定义
@@ -1005,9 +1008,9 @@ namespace DrillingSymtemCSCV2.Forms
                                     XmlElement xe2 = (XmlElement)node2;
                                     Command c = new Command();
                                     c.Group = int.Parse(xe2.GetAttribute("group"));
-                                    c.Tag= xe2.GetAttribute("tag");
-                                    c.TagName= xe2.GetAttribute("value");
-                                    c.hand= int.Parse(xe2.GetAttribute("hand"));
+                                    c.Tag = xe2.GetAttribute("tag");
+                                    c.TagName = xe2.GetAttribute("value");
+                                    c.hand = int.Parse(xe2.GetAttribute("hand"));
                                     c.Unit = xe2.GetAttribute("unit");
                                     AppDrill.Command.Add(c);
                                 }
@@ -1057,7 +1060,7 @@ namespace DrillingSymtemCSCV2.Forms
         //移除Memo
         public void RemoveMemo(double unix)
         {
-            var t = depthTimeChart.myPane.GraphObjList.Where(o =>o.Tag != null).ToList();
+            var t = depthTimeChart.myPane.GraphObjList.Where(o => o.Tag != null).ToList();
             var memo = depthTimeChart.myPane.GraphObjList.Where(o => o.Location.Y == unix && o.Tag != null).FirstOrDefault();
             depthTimeChart.myPane.GraphObjList.Remove(memo);
         }
@@ -1159,16 +1162,16 @@ namespace DrillingSymtemCSCV2.Forms
 
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-           double d=Comm.ConvertDateTimeInt(DateTime.Now.AddDays(-1))/1000;
-           foreach (var g in depthTimeChart.myPane.GraphObjList.Where(o => o.Tag != null && o.Location.Y < d))
-           {
-               try
-               {
-                   depthTimeChart.myPane.GraphObjList.Remove(g);//移除超过一天的
-                   break;
-               }
-               catch { }
-           }
+            double d = Comm.ConvertDateTimeInt(DateTime.Now.AddDays(-1)) / 1000;
+            foreach (var g in depthTimeChart.myPane.GraphObjList.Where(o => o.Tag != null && o.Location.Y < d))
+            {
+                try
+                {
+                    depthTimeChart.myPane.GraphObjList.Remove(g);//移除超过一天的
+                    break;
+                }
+                catch { }
+            }
             foreach (var m in Memo)
             {
                 GraphObj t = depthTimeChart.myPane.GraphObjList.Where(o => o.Tag != null && o.Location.Y == m.UnixTime).FirstOrDefault();
@@ -1229,6 +1232,18 @@ namespace DrillingSymtemCSCV2.Forms
                 dataShowControl1.ShowMessage(realTimeData);
             }
 
+        }
+
+        private void CancelButtonUp_Click(object sender, EventArgs e)
+        {
+            this.Location = temp_positon;
+            ((LoginForm)Application.OpenForms["LoginForm"]).timer_display.Enabled = true; //恢复滚动显示
+        }
+
+        private void btn_resume_Click(object sender, EventArgs e)
+        {
+            this.Location = temp_positon;
+            ((LoginForm)Application.OpenForms["LoginForm"]).timer_display.Enabled = true; //恢复滚动显示
         }
     }
 }

@@ -513,12 +513,6 @@
     <Compile Include="Forms\HisWellList.designer.cs">
       <DependentUpon>HisWellList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MapForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MapForm.Designer.cs">
-      <DependentUpon>MapForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Map_Baidu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -728,6 +722,9 @@
       <DependentUpon>DrillOSEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Encrypt.cs" />
+    <Compile Include="Model\Footage.cs">
+      <DependentUpon>DrillOSEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\HistoryDataModel.cs" />
     <Compile Include="Model\Memo.cs">
       <DependentUpon>DrillOSEntity.tt</DependentUpon>
@@ -948,9 +945,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HisWellList.resx">
       <DependentUpon>HisWellList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MapForm.resx">
-      <DependentUpon>MapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Map_Baidu.resx">
       <DependentUpon>Map_Baidu.cs</DependentUpon>

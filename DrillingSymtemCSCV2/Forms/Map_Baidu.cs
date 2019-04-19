@@ -24,7 +24,6 @@ namespace DrillingSymtemCSCV2.Forms
         List<Drill> drillinfo;
         Dictionary<int, int> IDlist; //0702添加，数据库ID号和显示列表的对应关系
         private bool m_bIsHistory = false;
-
         public static ProcessStartInfo startInfo = new ProcessStartInfo();
         public static Process pro = new Process();
 
@@ -54,7 +53,7 @@ namespace DrillingSymtemCSCV2.Forms
             //190411修改，油服现场用户（权限为4）仅显示当前井的信息
             if (AppDrill.permissionId == 4)
             {
-                var list = drillinfo.Where(o => o.isActive==true  && o.Contractor == AppDrill.realName).FirstOrDefault();
+                var list = drillinfo.Where(o => o.isActive == true && o.Contractor == AppDrill.realName).FirstOrDefault();
                 if (list != null)
                 {
                     IDlist.Add(index, list.ID);
@@ -73,7 +72,7 @@ namespace DrillingSymtemCSCV2.Forms
                     //在组里判断是否有激活的井，存在就添加到IDlist中,并更新listbox 
                     foreach (var drill in item)
                     {
-                        if (drill.isActive==true)
+                        if (drill.isActive == true)
                         {
                             IDlist.Add(index, drill.ID);
                             //listBox1.Items.RemoveAt(index - 1);
@@ -90,7 +89,7 @@ namespace DrillingSymtemCSCV2.Forms
             int index = 1;
 
             if (AppDrill.permissionId == 4) drillinfo = drillinfo.Where(o => o.Contractor == AppDrill.realName).ToList();
-            
+
             foreach (var item in drillinfo)
             {
                 //listBox1.Items.Insert(index - 1, index + "." + item.Operator + " " + item.Lease + "  " + item.DateSpud + "," + item.DrillNo);
@@ -147,7 +146,7 @@ namespace DrillingSymtemCSCV2.Forms
             //仅显示当前活动的井队
             foreach (Drill item in drillinfo)
             {
-                if (item.isActive==true)
+                if (item.isActive == true)
                 {
                     string[] pt = unittrans(item.location);
                     webBrowser1.Document.InvokeScript("setLocation", new object[] { pt[0], pt[1], "  " + item.description });
@@ -213,7 +212,7 @@ namespace DrillingSymtemCSCV2.Forms
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             if (listBox1.SelectedItem == null)
             {
                 MessageBox.Show("请选择一个数据源！");
@@ -250,40 +249,57 @@ namespace DrillingSymtemCSCV2.Forms
             }
             else
             {
+                //AppDrill.DrillID = IDlist[listBox1.SelectedIndex + 1];
+                //foreach (Form frm in Application.OpenForms)
+                //{
+                //    if (Convert.ToInt16(frm.Tag) == AppDrill.DrillID)
+                //    {
+                //        frm.BringToFront();
+                //        frm.WindowState = FormWindowState.Normal;
+                //        DrillForm drillForm = (DrillForm)frm;
+
+                //        if (null != drillForm)
+                //        {
+                //            //changeVideo(drillForm.getContractor(), AppDrill.DrillID);
+                //            sendMessgeToVideoProcess(drillForm.getContractor(), AppDrill.DrillID);
+                //        }
+
+                //        this.Hide();
+                //        this.Close();
+                //        return;
+                //    }
+                //}
+
+                //this.Hide();
+                //DrillForm drill = new DrillForm();
+                //drill.Size = new System.Drawing.Size(1920, 1080);
+                //drill.Location = new Point(0, 0);
+                //drill.Tag = AppDrill.DrillID;
+                //drill.m_iDrillID = AppDrill.DrillID;
+                //drill.setDrillID(AppDrill.DrillID);
+                //drill.Show();
+                ////changeVideo(drill.getContractor(), AppDrill.DrillID);
+                //sendMessgeToVideoProcess(drill.getContractor(), AppDrill.DrillID);
+
+                //0416修改， 此界面用于对分屏钻井界面的设置
+                ((LoginForm)Application.OpenForms["LoginForm"]).timer_display.Enabled = false; //停止滚动显示
+
                 AppDrill.DrillID = IDlist[listBox1.SelectedIndex + 1];
                 foreach (Form frm in Application.OpenForms)
                 {
+
                     if (Convert.ToInt16(frm.Tag) == AppDrill.DrillID)
                     {
+                        ((DrillForm)frm).temp_positon = frm.Location;
+                        frm.Location = new Point(0, 0);
                         frm.BringToFront();
-                        frm.WindowState = FormWindowState.Normal;
-                        DrillForm drillForm = (DrillForm)frm;
-
-                        if (null != drillForm)
-                        {
-                            //changeVideo(drillForm.getContractor(), AppDrill.DrillID);
-                            sendMessgeToVideoProcess(drillForm.getContractor(), AppDrill.DrillID);
-                        }
-
-                        this.Hide();
-                        this.Close();
-                        return;
                     }
                 }
 
-                this.Hide();
-                DrillForm drill = new DrillForm();
-                drill.Size = new System.Drawing.Size(1920, 1080);
-                drill.Location = new Point(0, 0);
-                drill.Tag = AppDrill.DrillID;
-                drill.m_iDrillID = AppDrill.DrillID;
-                drill.setDrillID(AppDrill.DrillID);
-                drill.Show();
-                //changeVideo(drill.getContractor(), AppDrill.DrillID);
-                sendMessgeToVideoProcess(drill.getContractor(), AppDrill.DrillID);
+
             }
 
-            this.Close();
+            //this.Close();
         }
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
@@ -343,6 +359,7 @@ namespace DrillingSymtemCSCV2.Forms
         private void cacel_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void Map_Baidu_FormClosed(object sender, FormClosedEventArgs e)
@@ -396,6 +413,18 @@ namespace DrillingSymtemCSCV2.Forms
             catch
             {
             }
+        }
+
+        private void btn_Wellset_Click(object sender, EventArgs e)
+        {
+            Frm_Welllist frm = new Frm_Welllist();
+            frm.ShowDialog();
+        }
+
+        private void btn_displayset_Click(object sender, EventArgs e)
+        {
+            Frm_DisplaySetting frm = new Forms.Frm_DisplaySetting();
+            frm.ShowDialog();
         }
     }
 }

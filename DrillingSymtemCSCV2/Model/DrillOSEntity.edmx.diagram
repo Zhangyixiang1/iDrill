@@ -10,8 +10,8 @@
         <EntityTypeShape EntityType="DrillOSModel.MemoContent" Width="1.5" PointX="4.625" PointY="4.75" />
         <EntityTypeShape EntityType="DrillOSModel.Rota" Width="1.5" PointX="4.625" PointY="0.75" />
         <EntityTypeShape EntityType="DrillOSModel.Memo" Width="1.5" PointX="2.875" PointY="4.625" />
-        <EntityTypeShape EntityType="DrillOSModel.BushingSize" Width="1.5" PointX="5.75" PointY="9.375" />
-        <EntityTypeShape EntityType="DrillOSModel.BushingType" Width="1.5" PointX="3.75" PointY="9.375" />
+        <EntityTypeShape EntityType="DrillOSModel.BushingSize" Width="1.5" PointX="5" PointY="10.375" />
+        <EntityTypeShape EntityType="DrillOSModel.BushingType" Width="1.5" PointX="4.875" PointY="7.5" />
         <EntityTypeShape EntityType="DrillOSModel.WorkCode" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="DrillOSModel.Table_MudChemicalsAdded" Width="1.5" PointX="8.75" PointY="4" />
         <EntityTypeShape EntityType="DrillOSModel.Table_PumpNo" Width="1.5" PointX="0.875" PointY="11.875" />
@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="DrillOSModel.TagDictionary" Width="1.5" PointX="0.875" PointY="15.125" />
         <EntityTypeShape EntityType="DrillOSModel.UnitTransfer" Width="1.5" PointX="0.875" PointY="5.375" />
         <EntityTypeShape EntityType="DrillOSModel.DrillTools" Width="1.5" PointX="2.875" PointY="13.5" />
-        <EntityTypeShape EntityType="DrillOSModel.UserTagRef" Width="1.5" PointX="5.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DrillOSModel.UserTagRef" Width="1.5" PointX="5" PointY="13.375" />
         <EntityTypeShape EntityType="DrillOSModel.DrillTag" Width="1.5" PointX="0.87383458431523042" PointY="18.301679530321472" />
         <EntityTypeShape EntityType="DrillOSModel.ActivityStatus" Width="1.5" PointX="0.875" PointY="8.375" />
         <EntityTypeShape EntityType="DrillOSModel.CurrentDrill" Width="1.5" PointX="2.875" PointY="18.25" />
@@ -29,9 +29,10 @@
         <EntityTypeShape EntityType="DrillOSModel.Worker" Width="1.5" PointX="2.875" PointY="21.25" />
         <EntityTypeShape EntityType="DrillOSModel.Permission" Width="1.5" PointX="4.875" PointY="17.375" />
         <EntityTypeShape EntityType="DrillOSModel.ReportData" Width="1.5" PointX="4.875" PointY="21.25" />
-        <EntityTypeShape EntityType="DrillOSModel.WorkType" Width="1.5" PointX="3.4950215460243736" PointY="10.62487240630429" />
+        <EntityTypeShape EntityType="DrillOSModel.WorkType" Width="1.5" PointX="2.875" PointY="8.625" />
         <EntityTypeShape EntityType="DrillOSModel.AlarmHistory" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="DrillOSModel.AlarmHis" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DrillOSModel.Footage" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="DrillOSModel.Drill" Width="1.5" PointX="12.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>

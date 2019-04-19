@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Map_display
             // 
@@ -37,6 +43,7 @@
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Map_display";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Map_display";
             this.Load += new System.EventHandler(this.Map_display_Load);
             this.ResumeLayout(false);
@@ -44,5 +51,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -4,6 +4,7 @@ using DrillingSymtemCSCV2.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -22,6 +23,10 @@ namespace DrillingSymtemCSCV2
     {
         DrillOSEntities _db;
         List<User> u_list;
+        Configuration config;
+        string dis2, dis3, dis4, cycletime; //显示配置信息
+        List<DrillForm> displaylist;// 需要循环的窗体
+        List<Point> Tvlist;// 活动的电视墙坐标
         private List<string> error_info = new List<string>();//定义错误提交信息
         public LoginForm()
         {
@@ -184,6 +189,19 @@ namespace DrillingSymtemCSCV2
             //多语言对应
             setControlLanguage();
             _db = new DrillOSEntities();
+            //190415新增，读取显示配置文件信息
+            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            dis2 = config.AppSettings.Settings["display2"].Value;
+            dis3 = config.AppSettings.Settings["display3"].Value;
+            dis4 = config.AppSettings.Settings["display4"].Value;
+            cycletime = config.AppSettings.Settings["cycletime"].Value;
+            displaylist = new List<DrillForm>();
+            Tvlist = new List<Point>();
+            if (dis2 == "循环") Tvlist.Add(new Point(1920 * 2, 0));
+            if (dis3 == "循环") Tvlist.Add(new Point(1920, 1080));
+            if (dis4 == "循环") Tvlist.Add(new Point(1920 * 2, 1080));
+
+
             #region 异步加载数据
             backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
@@ -233,15 +251,41 @@ namespace DrillingSymtemCSCV2
                 AppDrill.realName = user.realName;
                 SetValue("Account", user.username);
 
-                //Map_Baidu frm = new Map_Baidu();
-                //frm.Size = new System.Drawing.Size(1920, 1080);
-                //frm.Show();
+                Map_Baidu frm = new Map_Baidu();
+                frm.Size = new System.Drawing.Size(1920, 1080);
+                frm.Show();
 
                 //190411新增，permission为2的用户，电视上投影大数据界面和钻井界面的轮询
                 if (AppDrill.permissionId == 2)
                 {
-                    Map_display frm = new Map_display();
-                    frm.Show();
+                    Map_display frm_dis = new Map_display();
+                    frm_dis.Location = new Point(1920, 0); //电视墙1号屏幕
+                    frm_dis.Show();
+                    //从数据获得当前井队的状态，并与配置文件中的显示设置比对，确定form的显示位置
+                    var wellist = _db.Drill.Where(o => o.isActive == true).ToList();
+
+
+
+                    foreach (var item in wellist)
+                    {
+                        DrillForm drill = new DrillForm();
+                        drill.Size = new System.Drawing.Size(1920, 1080);
+                        drill.Location = new Point(-1920, -1920); //默认的话给一个负坐标
+                        drill.Tag = item.ID;
+                        drill.m_iDrillID = item.ID;
+                        drill.setDrillID(item.ID);
+                        if (item.Contractor == dis2) drill.Location = new Point(1920 * 2, 0);//电视墙2号屏幕
+                        else if (item.Contractor == dis3) drill.Location = new Point(1920, 1080);//电视墙3号屏幕
+                        else if (item.Contractor == dis4) drill.Location = new Point(1920 * 2, 1080);//电视墙4号屏幕
+                        else displaylist.Add(drill);
+                        drill.Show();
+                    }
+
+                    //启动触发
+
+                    timer_display.Interval = int.Parse(cycletime) * 1000;
+                    timer_display.Enabled = true;
+
 
                 }
 
@@ -389,8 +433,40 @@ namespace DrillingSymtemCSCV2
 
         #endregion
 
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            using (_db = new DrillOSEntities())
+            {
+                var item = _db.User.Where(o => o.username == AppDrill.username).FirstOrDefault();
+                item.isActive = false;
+                _db.SaveChanges();
+            }
+
+        }
+
         private void backgroundWorker1_DoWork_1(object sender, DoWorkEventArgs e)
         {
+
+        }
+        int temp = 0; //控制井队循环的中间变量
+        private void timer_display_Tick(object sender, EventArgs e)
+        {
+
+
+            foreach (var item in displaylist)
+            {
+                item.Location = new Point(-1920, -1920);
+            }
+
+            for (int i = 0; i < Tvlist.Count; i++)
+            {
+                if (temp * Tvlist.Count + i < displaylist.Count)
+                    displaylist[temp * Tvlist.Count + i].Location = Tvlist[i];
+
+            }
+
+            temp++;
+            if (temp > displaylist.Count / Tvlist.Count) temp = 0;
 
         }
     }

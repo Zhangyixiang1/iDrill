@@ -114,6 +114,7 @@
             // 
             // btn_Down
             // 
+            this.btn_Down.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Down.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.btn_Down.Location = new System.Drawing.Point(1575, 268);
             this.btn_Down.Name = "btn_Down";
@@ -157,6 +158,7 @@
             // 
             // btn_Enlarge
             // 
+            this.btn_Enlarge.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Enlarge.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold);
             this.btn_Enlarge.Image = global::DrillingSymtemCSCV2.Properties.Resources.enlarge;
             this.btn_Enlarge.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,6 +171,7 @@
             // 
             // btn_Narrow
             // 
+            this.btn_Narrow.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Narrow.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold);
             this.btn_Narrow.Image = global::DrillingSymtemCSCV2.Properties.Resources.sorrow;
             this.btn_Narrow.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,6 +226,7 @@
             // 
             // btn_PageUp
             // 
+            this.btn_PageUp.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_PageUp.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btn_PageUp.Location = new System.Drawing.Point(1576, 134);
             this.btn_PageUp.Name = "btn_PageUp";
@@ -234,6 +238,7 @@
             // 
             // btn_PageDown
             // 
+            this.btn_PageDown.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_PageDown.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btn_PageDown.Location = new System.Drawing.Point(1576, 327);
             this.btn_PageDown.Name = "btn_PageDown";

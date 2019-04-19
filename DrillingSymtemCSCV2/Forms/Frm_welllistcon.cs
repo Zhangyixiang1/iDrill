@@ -39,9 +39,9 @@ namespace DrillingSymtemCSCV2.Forms
                 dateTimePicker1.Value = DateTime.Parse(item.DateSpud);
                 txb_depth.Text = item.design_depth;
                 txb_drillNo.Text = item.DrillNo;
-                txb_lati.Text = item.latitude;
+                txb_lati.Text = item.latitude.ToString();
                 txb_location.Text = item.Lease;
-                txb_longi.Text = item.longitude;
+                txb_longi.Text = item.longitude.ToString();
                 txb_operator.Text = item.Operator;
                 txb_period.Text = item.period;
                 txb_rigNo.Text = item.RigNo;
@@ -78,9 +78,9 @@ namespace DrillingSymtemCSCV2.Forms
                         item.DateSpud = dateTimePicker1.Value.ToString();
                         item.design_depth = txb_depth.Text;
                         item.DrillNo = txb_drillNo.Text;
-                        item.latitude = txb_lati.Text;
+                        item.latitude = float.Parse( txb_lati.Text);
                         item.Lease = txb_location.Text;
-                        item.longitude = txb_longi.Text;
+                        item.longitude = float.Parse(txb_longi.Text);
                         item.Operator = txb_operator.Text;
                         item.period = txb_period.Text;
                         item.RigNo = txb_rigNo.Text;
@@ -104,9 +104,9 @@ namespace DrillingSymtemCSCV2.Forms
                     item.DateSpud = dateTimePicker1.Value.ToString();
                     item.design_depth = txb_depth.Text;
                     item.DrillNo = txb_drillNo.Text;
-                    item.latitude = txb_lati.Text;
+                    item.latitude = float.Parse(txb_lati.Text);
                     item.Lease = txb_location.Text;
-                    item.longitude = txb_longi.Text;
+                    item.longitude = float.Parse(txb_longi.Text);
                     item.Operator = txb_operator.Text;
                     item.period = txb_period.Text;
                     item.RigNo = txb_rigNo.Text;

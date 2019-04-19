@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.txtUsername = new Telerik.WinControls.UI.RadTextBox();
             this.txtPassword = new Telerik.WinControls.UI.RadTextBox();
@@ -48,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer_display = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbl_username)).BeginInit();
@@ -263,6 +265,10 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork_1);
             // 
+            // timer_display
+            // 
+            this.timer_display.Tick += new System.EventHandler(this.timer_display_Tick);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -295,6 +301,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iDrill 2.0";
             this.ThemeName = "VisualStudio2012Dark";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
@@ -338,6 +345,7 @@
         private Telerik.WinControls.UI.RadLabel txt_loginfailed;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Telerik.WinControls.UI.RadButton rbtn_keyborad;
+        public System.Windows.Forms.Timer timer_display;
     }
 }
 
